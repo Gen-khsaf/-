@@ -7,14 +7,16 @@
 </head>
 <body>
     <label for="text">テキストを入力してください:</label><br>
-    <textarea id="text" rows="4" cols="50" oninput="countCharacters()"></textarea><br>
+    <textarea id="text" rows="4" cols="50"></textarea><br>
     <span id="characterCount">0 文字</span>
     <script>
-        function countCharacters() {
-            var text = document.getElementById("text").value;
-            var count = text.length;
-            document.getElementById("characterCount").textContent = count + " 文字";
-        }
+        var textarea = document.getElementById("text");
+        var characterCount = document.getElementById("characterCount");
+
+        textarea.addEventListener("input", function() {
+            var count = textarea.value.length;
+            characterCount.textContent = count + " 文字";
+        });
     </script>
 </body>
 </html>
